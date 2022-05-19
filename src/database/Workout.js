@@ -20,7 +20,9 @@ const getOneWorkout = (workoutId) => {
       };
     }
     return workout;
-  } catch (error) {}
+  } catch (error) {
+    throw { status: error?.status || 500, message: error?.message || error };
+  }
 };
 
 const createNewWorkout = (newWorkout) => {
